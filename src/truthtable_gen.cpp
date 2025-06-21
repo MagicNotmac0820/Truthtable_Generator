@@ -1,30 +1,10 @@
-#ifndef __TRUTHTAB_GEN_H__
-#define __TRUTHTAB_GEN_H__
-
-/**
- * This is a generator of truth table and boolean function
- * The user have to handle the input, make sure the number of boolean variables matching the boolean function
- */
-
 #include <iostream>
 #include <vector>
+#include <truthtable_gen.h>
 using std::cin ;
 using std::cout ;
 using std::endl ;
 using std::vector ;
-
-class Generator{
-    private :
-        vector<char> variableTypes ;
-        bool (*func)( const vector<bool> &inputs ) ;
-        vector<vector<bool>> result ;
-
-        void backtrack( int index , vector<vector<bool>> &result , vector<bool> &path ) ;
-        vector<vector<bool>> generate( int variablesNum ) ;
-    public :
-        Generator( int variablesNum , bool (*func)( const vector<bool> &inputs ) ) ;
-        void print(void) ;
-} ;
 
 Generator::Generator( int variablesNum , bool (*func)( const vector<bool> &inputs ) ) :
                       func(func)
@@ -72,5 +52,3 @@ void Generator::print(void){
 
     return ;
 }
-
-#endif  //__TRUTHTAB_GEN_H__

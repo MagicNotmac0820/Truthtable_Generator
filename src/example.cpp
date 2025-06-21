@@ -1,6 +1,8 @@
-#include "truthtab_gen.h"
+#include <iostream>
+#include <vector>
+#include <truthtable_gen.h>
 
-bool boolFunc( const vector<bool> &inputs ){
+bool boolFunc( const std::vector<bool> &inputs ){
     bool w = inputs[0] ;
     bool x = inputs[1] ;
     bool y = inputs[2] ;
@@ -12,7 +14,7 @@ bool boolFunc( const vector<bool> &inputs ){
 		   ( x && y && z ) ;
 }
 
-bool boolFunc2( const vector<bool> &inputs ){
+bool boolFunc2( const std::vector<bool> &inputs ){
 	bool w = inputs[0] ;
 	bool x = inputs[1] ;
 	bool y = inputs[2] ;
@@ -25,7 +27,7 @@ bool boolFunc2( const vector<bool> &inputs ){
 
 int main(void){
     int variablesNum ;
-    cin >> variablesNum ;
+    std::cin >> variablesNum ;
     Generator truthtable( variablesNum , boolFunc2 ) ;
 
     truthtable.print() ;
